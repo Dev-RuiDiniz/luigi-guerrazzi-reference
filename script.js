@@ -9,6 +9,19 @@ const tickClock = () => {
 tickClock();
 setInterval(tickClock, 30000);
 
+const siteHeader = $('[data-site-header]');
+const hero = $('.hero');
+const updateHeaderState = () => {
+  if (!siteHeader || !hero) return;
+  const heroEnd = hero.offsetTop + hero.offsetHeight - siteHeader.offsetHeight;
+  siteHeader.classList.toggle('is-scrolled', window.scrollY >= heroEnd);
+};
+if (siteHeader && hero) {
+  updateHeaderState();
+  window.addEventListener('scroll', updateHeaderState, { passive: true });
+  window.addEventListener('resize', updateHeaderState);
+}
+
 const heroVideo = $('.hero__video');
 const heroFallback = $('.hero__fallback');
 if (heroVideo) {

@@ -12,6 +12,19 @@
   </head>
   <body>
     <main>
+      <header class="site-header" data-site-header>
+        <div class="shell site-header__inner">
+          <a class="brand" href="#inicio" aria-label="Luigi Guerrazzi — início"><img src="assets/luigi/logo-topo.png" alt="Luigi Guerrazzi" /></a>
+          <nav class="site-nav" aria-label="Navegação principal">
+            <a href="#sobre">Sobre</a>
+            <a href="#design">Portfólio</a>
+            <a href="#videos">Vídeos</a>
+            <a href="#contato">Contato</a>
+          </nav>
+          <span class="micro hero__clock"><i class="rec-dot"></i><span data-clock>--:--</span></span>
+        </div>
+      </header>
+
       <header class="hero" id="inicio">
         <div class="hero__media" aria-hidden="true">
           <video class="hero__video" autoplay muted loop playsinline poster="midia/luigi/fotos/hero-youtube.jpg">
@@ -20,24 +33,22 @@
           <img class="hero__fallback" src="midia/luigi/fotos/hero-youtube.jpg" alt="" />
         </div>
         <div class="hero__veil"></div>
-        <div class="hero__hud shell">
-          <a class="brand" href="#inicio" aria-label="Luigi Guerrazzi — início"><img src="assets/luigi/logo-topo.png" alt="Luigi Guerrazzi" /></a>
-          <span class="micro">EDIÇÃO · DESIGN · PUBLICIDADE</span>
-          <span class="micro hero__clock"><i class="rec-dot"></i><span data-clock>--:--</span></span>
-        </div>
         <div class="hero__content shell">
-          <div class="hero__copy reveal is-visible">
-            <span class="micro hero__eyebrow">LUIGI GUERRAZZI <strong>EDITOR DE VÍDEO</strong></span>
-            <h1>Ideias que<br /><em>ganham ritmo.</em></h1>
-            <p>Vídeo, publicidade e design gráfico para marcas que querem comunicar com clareza, personalidade e impacto.</p>
-            <div class="hero__actions">
-              <a class="button button--accent" href="https://api.whatsapp.com/send?phone=5511994033005&amp;text=Ol%C3%A1%2C%20Luigi%21%20Gostaria%20de%20maiores%20informa%C3%A7%C3%B5es%20sobre%20seus%20servi%C3%A7os." target="_blank" rel="noreferrer">Falar sobre um projeto <b>↗</b></a>
-              <a class="button button--ghost" href="https://luigiguerrazzi.com.br/luigi-guerrazzi-2/" target="_blank" rel="noreferrer">Ver minha biografia</a>
-            </div>
-          </div>
           <a class="scroll-cue" href="#sobre" aria-label="Rolar para o conteúdo"><span>ROLAR</span><i></i></a>
         </div>
       </header>
+
+      <section class="hero-intro section" aria-labelledby="intro-title">
+        <div class="shell hero-intro__copy reveal is-visible">
+          <span class="micro hero__eyebrow">LUIGI GUERRAZZI <strong>EDITOR DE VÍDEO</strong></span>
+          <h1 id="intro-title">Ideias que<br /><em>ganham ritmo.</em></h1>
+          <p>Vídeo, publicidade e design gráfico para marcas que querem comunicar com clareza, personalidade e impacto.</p>
+          <div class="hero__actions">
+            <a class="button button--accent" href="https://api.whatsapp.com/send?phone=5511994033005&amp;text=Ol%C3%A1%2C%20Luigi%21%20Gostaria%20de%20maiores%20informa%C3%A7%C3%B5es%20sobre%20seus%20servi%C3%A7os." target="_blank" rel="noreferrer">Falar sobre um projeto <b>↗</b></a>
+            <a class="button button--ghost" href="https://luigiguerrazzi.com.br/luigi-guerrazzi-2/" target="_blank" rel="noreferrer">Ver minha biografia</a>
+          </div>
+        </div>
+      </section>
 
       <section class="proof-strip" aria-label="Áreas de atuação">
         <div class="shell proof-strip__grid">
