@@ -1,16 +1,17 @@
-# Luigi Guerrazzi — referência em HTML
+# Luigi Guerrazzi — landing em HTML
 
-Landing page estática inspirada na estrutura editorial da referência anterior e adaptada para Luigi Guerrazzi.
+Landing page estática inspirada em uma direção editorial de portfólio e adaptada para Luigi Guerrazzi. O staging usa `noindex` até a aprovação da versão final.
 
 ## Arquivos principais
 
-- `index.html` — estrutura, copy, contatos e catálogo de projetos;
+- `index.html` — estrutura, copy, contato e catálogo de projetos;
 - `styles.css` — identidade visual escura/turquesa, layout responsivo e estados de interação;
-- `script.js` — hero com fallback, animações de entrada, modal de vídeos, FAQ e formulário visual;
+- `script.js` — relógio, menu móvel, animações de entrada, rail de cases, timeline, modal de vídeos, FAQ e formulário para WhatsApp;
 - `assets/luigi/` — logos do cliente;
-- `midia/luigi/fotos/` — foto de perfil, thumbnail e portfólio visual;
-- `midia/luigi/videos/` — showreel, aftermovie e cobertura de palestra baixados localmente. O aftermovie publicado no GitHub usa a versão otimizada `aftermovie-evento-web.mp4`; o arquivo original permanece local por exceder o limite de 100 MB por arquivo do GitHub.
+- `midia/luigi/fotos/` — foto de perfil, thumbnails e portfólio visual;
+- `midia/luigi/videos/` — vídeos do staging sincronizados da Hostinger; os arquivos MP4 são versionados via Git LFS;
+- `midia/clientes/` — marcas e parceiros usados na prova social.
 
-Os projetos adicionais hospedados no Google Drive continuam incorporados via iframe público para manter o projeto leve. O formulário não envia dados: ele funciona como referência visual e orienta o visitante para WhatsApp/e-mail.
+Os vídeos e imagens existentes são carregados a partir das pastas de mídia do staging. O formulário valida os dados localmente e abre uma mensagem preenchida no WhatsApp; não há armazenamento de dados no servidor.
 
-Para visualizar localmente, abra `index.html` no navegador ou sirva esta pasta com um servidor estático.
+Esta branch acompanha a versão publicada em `white-pheasant-481528.hostingersite.com`. A versão anterior do GitHub foi preservada na tag `pre-hostinger-sync-20260916`.
