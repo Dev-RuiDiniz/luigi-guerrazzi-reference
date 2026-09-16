@@ -16,7 +16,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="assets/luigi/luigiLogoG.png" type="image/png" />
     <link rel="preload" href="fonts/Sora.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="stylesheet" href="styles.css?v=20260916-14" />
+    <link rel="stylesheet" href="styles.css?v=20260916-15" />
     <title>Luigi Guerrazzi — Edição, design e direção criativa</title>
   </head>
   <body>
@@ -33,6 +33,10 @@
         <a href="#processo">Processo</a>
       </nav>
       <a class="button button-small button-outline header-cta" href="#contato">Contato</a>
+      <div class="header-clock" aria-label="Horário local em São Paulo">
+        <span class="header-clock__label">SP / BR</span>
+        <time class="clock" data-clock>00:00:00</time>
+      </div>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Abrir menu">
         <span></span><span></span>
       </button>
@@ -46,27 +50,23 @@
     </nav>
 
     <main id="conteudo">
-      <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <section class="hero" id="inicio" aria-label="Showreel de Luigi Guerrazzi">
         <video class="hero-media" autoplay muted loop playsinline preload="metadata" poster="midia/luigi/fotos/hero-youtube.jpg" aria-hidden="true">
           <source src="midia/luigi/videos/showreel-2026.mp4" type="video/mp4" />
         </video>
         <div class="hero-fallback" role="img" aria-label="Imagem de bastidores de uma produção audiovisual"></div>
         <div class="hero-scrim"></div>
-        <div class="hero-content page-shell">
-          <div class="eyebrow light"><span class="status-dot"></span> Edição · Design · Publicidade</div>
-          <h1 id="hero-title">Ideias que<br /><em>ganham ritmo.</em></h1>
-          <div class="hero-bottom">
-            <p class="hero-copy">Eu transformo intenção em imagem, som e movimento — do primeiro frame ao último detalhe.</p>
-            <a class="button button-light" href="#cases">Explorar trabalho <span aria-hidden="true">↓</span></a>
-          </div>
-          <div class="hero-meta"><span>São Paulo, Brasil</span><span>Disponível para projetos</span><span class="clock" data-clock>00:00:00</span></div>
-        </div>
-        <a class="scroll-cue" href="#sinal" aria-label="Descer para o próximo bloco"><span></span> Scroll para explorar</a>
       </section>
 
       <section class="signal section-dark" id="sinal" aria-labelledby="signal-title">
+        <div class="page-shell hero-intro" aria-labelledby="hero-title">
+          <div class="eyebrow light"><span class="status-dot"></span> Edição · Design · Publicidade</div>
+          <h1 id="hero-title">Ideias que<br /><em>ganham ritmo.</em></h1>
+          <div class="hero-intro__bottom">
+            <p>Eu transformo intenção em imagem, som e movimento — do primeiro frame ao último detalhe.</p>
+          </div>
+        </div>
         <div class="page-shell signal-grid">
-          <p class="section-index">01 / 08</p>
           <div class="signal-copy">
             <p class="eyebrow">O que move o trabalho</p>
             <h2 id="signal-title">Toda ideia tem um pulso.<br /><span>Meu trabalho é encontrá-lo.</span></h2>
@@ -108,7 +108,7 @@
 
       <section class="services section-dark" id="servicos" aria-labelledby="services-title">
         <div class="page-shell">
-          <div class="section-heading reveal"><div><p class="section-index">02 / 08</p><p class="eyebrow">Onde posso entrar</p></div><h2 id="services-title">Uma ideia.<br /><em>Várias formas de ganhar vida.</em></h2></div>
+          <div class="section-heading reveal"><div><p class="eyebrow">Onde posso entrar</p></div><h2 id="services-title">Uma ideia.<br /><em>Várias formas de ganhar vida.</em></h2></div>
           <div class="service-grid">
             <article class="service-card reveal"><span class="card-number">01</span><div class="service-icon">◒</div><h3>Edição de vídeo</h3><p>Do material bruto à narrativa final: ritmo, seleção, montagem, sound design, cor e acabamento para cada formato.</p><div class="tag-row"><span>Reels</span><span>YouTube</span><span>Institucional</span><span>Eventos</span></div></article>
             <article class="service-card reveal"><span class="card-number">02</span><div class="service-icon">⌘</div><h3>Design gráfico</h3><p>Identidade visual, peças digitais e sistemas gráficos que organizam a mensagem e dão consistência à presença da marca.</p><div class="tag-row"><span>Identidade</span><span>Social</span><span>Apresentações</span><span>Motion</span></div></article>
@@ -119,7 +119,7 @@
 
       <section class="reel section-paper" aria-labelledby="reel-title">
         <div class="page-shell">
-          <div class="section-heading compact reveal"><div><p class="section-index">03 / 08</p><p class="eyebrow">Recorte em movimento</p></div><h2 id="reel-title">O frame também<br /><em>tem personalidade.</em></h2></div>
+          <div class="section-heading compact reveal"><div><p class="eyebrow">Recorte em movimento</p></div><h2 id="reel-title">O frame também<br /><em>tem personalidade.</em></h2></div>
           <button class="media-feature reveal" type="button" data-video="midia/luigi/videos/showreel-2026.mp4" data-cover-src="midia/luigi/videos/showreel-2026.mp4" data-title="Showreel 2026" aria-label="Assistir ao Showreel 2026">
             <video class="media-cover" muted playsinline preload="none" aria-hidden="true"></video><span class="media-overlay"></span><span class="play-button" aria-hidden="true">▶</span><span class="media-caption"><strong>Showreel 2026</strong><small>Vídeo · Edição · Motion</small></span>
           </button>
@@ -137,7 +137,7 @@
       <section class="work section-dark" id="cases" aria-labelledby="work-title" data-work-section>
         <div class="work-pin" data-work-pin>
           <div class="page-shell">
-            <div class="section-heading work-heading reveal"><div><p class="section-index">04 / 09</p><p class="eyebrow">Trabalhos selecionados</p></div><div class="rail-controls"><button type="button" class="rail-button" data-rail-prev aria-label="Voltar trabalhos">←</button><button type="button" class="rail-button" data-rail-next aria-label="Avançar trabalhos">→</button></div><h2 id="work-title">Cada projeto<br /><em>pede um ritmo.</em></h2></div>
+            <div class="section-heading work-heading reveal"><div><p class="eyebrow">Trabalhos selecionados</p></div><div class="rail-controls"><button type="button" class="rail-button" data-rail-prev aria-label="Voltar trabalhos">←</button><button type="button" class="rail-button" data-rail-next aria-label="Avançar trabalhos">→</button></div><h2 id="work-title">Cada projeto<br /><em>pede um ritmo.</em></h2></div>
           </div>
           <div class="work-viewport" data-work-viewport>
             <div class="case-rail work-track" data-case-rail tabindex="0" aria-label="Trabalhos em vídeo. Use a rolagem ou as setas para explorar.">
@@ -156,7 +156,7 @@
 
       <section class="proof section-paper" aria-labelledby="proof-title">
         <div class="page-shell proof-grid">
-          <div class="proof-copy reveal"><p class="section-index">05 / 09</p><p class="eyebrow">Parcerias que viraram entrega</p><h2 id="proof-title">Boas ideias<br /><em>não trabalham sozinhas.</em></h2><p>Uma seleção de marcas, negócios e projetos que já passaram pela timeline — cada um com um desafio diferente, todos com espaço para fazer bem feito.</p></div>
+          <div class="proof-copy reveal"><p class="eyebrow">Parcerias que viraram entrega</p><h2 id="proof-title">Boas ideias<br /><em>não trabalham sozinhas.</em></h2><p>Uma seleção de marcas, negócios e projetos que já passaram pela timeline — cada um com um desafio diferente, todos com espaço para fazer bem feito.</p></div>
           <div class="logo-wall reveal" aria-label="Marcas e parceiros"><div class="logo-tile"><img src="midia/clientes/avantto.webp" alt="Avantto" loading="lazy" /></div><div class="logo-tile"><img src="midia/clientes/arqdigital.webp" alt="Arq Digital" loading="lazy" /></div><div class="logo-tile"><img src="midia/clientes/baldan.webp" alt="Baldan" loading="lazy" /></div><div class="logo-tile"><img src="midia/clientes/belas-artes.webp" alt="Belas Artes" loading="lazy" /></div><div class="logo-tile"><img src="midia/clientes/bravend.webp" alt="Bravend" loading="lazy" /></div><div class="logo-tile"><img src="midia/clientes/delfar.webp" alt="Delfar" loading="lazy" /></div><div class="logo-tile"><img src="midia/clientes/dharma.webp" alt="Dharma" loading="lazy" /></div><div class="logo-tile"><img src="midia/clientes/dobro.webp" alt="Dobro" loading="lazy" /></div><div class="logo-tile"><img src="midia/clientes/enviagora.webp" alt="EnviaAgora" loading="lazy" /></div><div class="logo-tile"><img src="midia/clientes/g4.webp" alt="G4" loading="lazy" /></div><div class="logo-tile"><img src="midia/clientes/hikvision.webp" alt="Hikvision" loading="lazy" /></div><div class="logo-tile"><img src="midia/clientes/nova8.webp" alt="Nova 8" loading="lazy" /></div></div>
           <div class="testimonial-strip reveal" aria-label="Depoimentos visuais"><figure><img src="midia/depoimentos/avantto.webp" alt="Depoimento visual da Avantto" loading="lazy" /><figcaption>Avantto · depoimento</figcaption></figure><figure><img src="midia/depoimentos/dobro.webp" alt="Depoimento visual da Dobro" loading="lazy" /><figcaption>Dobro · depoimento</figcaption></figure><figure><img src="midia/depoimentos/nova8.webp" alt="Depoimento visual da Nova 8" loading="lazy" /><figcaption>Nova 8 · depoimento</figcaption></figure></div>
         </div>
@@ -164,7 +164,7 @@
 
       <section class="process section-paper" id="processo" aria-labelledby="process-title">
         <div class="page-shell process-grid">
-          <div class="process-intro reveal"><p class="section-index">06 / 09</p><p class="eyebrow">Como a ideia acontece</p><h2 id="process-title">Clareza<br /><em>antes do corte.</em></h2><p>Um processo simples, próximo e transparente para que cada decisão criativa tenha intenção.</p></div>
+          <div class="process-intro reveal"><p class="eyebrow">Como a ideia acontece</p><h2 id="process-title">Clareza<br /><em>antes do corte.</em></h2><p>Um processo simples, próximo e transparente para que cada decisão criativa tenha intenção.</p></div>
           <div class="timeline" data-timeline>
             <article class="timeline-item reveal is-active" data-step="01"><span class="timeline-number">01</span><div><h3>Briefing</h3><p>A gente alinha contexto, objetivo, público, referências e o que precisa ser sentido por quem assiste.</p></div></article>
             <article class="timeline-item reveal" data-step="02"><span class="timeline-number">02</span><div><h3>Narrativa</h3><p>Organizo a matéria-prima e encontro a estrutura: o que entra, o que respira e onde a história vira chave.</p></div></article>
@@ -175,11 +175,11 @@
       </section>
 
       <section class="toolkit section-dark" aria-labelledby="toolkit-title">
-        <div class="page-shell toolkit-grid"><div><p class="section-index">07 / 09</p><p class="eyebrow">Ferramentas a serviço da ideia</p></div><h2 id="toolkit-title">Domínio técnico<br /><em>sem perder o olhar.</em></h2><div class="tool-list"><span>Adobe Premiere Pro</span><span>After Effects</span><span>Photoshop</span><span>Direção de arte</span><span>Sound design</span><span>Color grading</span></div></div>
+        <div class="page-shell toolkit-grid"><div><p class="eyebrow">Ferramentas a serviço da ideia</p></div><h2 id="toolkit-title">Domínio técnico<br /><em>sem perder o olhar.</em></h2><div class="tool-list"><span>Adobe Premiere Pro</span><span>After Effects</span><span>Photoshop</span><span>Direção de arte</span><span>Sound design</span><span>Color grading</span></div></div>
       </section>
 
       <section class="faq section-paper" aria-labelledby="faq-title">
-        <div class="page-shell faq-grid"><div class="faq-intro reveal"><p class="section-index">08 / 09</p><p class="eyebrow">Perguntas frequentes</p><h2 id="faq-title">Antes de<br /><em>começarmos.</em></h2><p>Se a sua dúvida não estiver aqui, me escreva. A conversa também faz parte do processo.</p></div><div class="faq-list reveal">
+        <div class="page-shell faq-grid"><div class="faq-intro reveal"><p class="eyebrow">Perguntas frequentes</p><h2 id="faq-title">Antes de<br /><em>começarmos.</em></h2><p>Se a sua dúvida não estiver aqui, me escreva. A conversa também faz parte do processo.</p></div><div class="faq-list reveal">
           <details open><summary>Que tipo de projeto você atende?<span>+</span></summary><p>Vídeos para redes sociais, YouTube, eventos, campanhas, conteúdo institucional e projetos de marca. Também posso entrar com design e direção criativa.</p></details>
           <details><summary>Você recebe material bruto ou também participa da produção?<span>+</span></summary><p>Os dois. Posso trabalhar a partir do material que você já tem ou colaborar desde o conceito, roteiro e direção visual para a captação.</p></details>
           <details><summary>Como funciona o orçamento?<span>+</span></summary><p>Depois de entender escopo, prazo, formatos e referências, envio uma proposta objetiva com etapas, entregáveis e condições. Cada projeto é dimensionado de forma justa.</p></details>
@@ -188,7 +188,7 @@
       </section>
 
       <section class="contact section-accent" id="contato" aria-labelledby="contact-title">
-        <div class="page-shell contact-grid"><div class="contact-intro reveal"><p class="section-index">09 / 09</p><p class="eyebrow">O próximo projeto começa aqui</p><h2 id="contact-title">Tem uma ideia<br />na cabeça?</h2><p>Me conte o que você quer colocar no mundo. Eu respondo pelo WhatsApp e a gente encontra o melhor caminho.</p><div class="contact-links"><a href="mailto:contato@luigiguerrazzi.com.br">contato@luigiguerrazzi.com.br <span>↗</span></a><a href="https://instagram.com/luigiguerrazzi_edicoes" target="_blank" rel="noreferrer">@luigiguerrazzi_edicoes <span>↗</span></a></div></div><form class="contact-form reveal" data-contact-form><label>Seu nome<input name="name" autocomplete="name" required placeholder="Como posso te chamar?" /></label><label>Seu e-mail<input type="email" name="email" autocomplete="email" required placeholder="voce@empresa.com" /></label><label>Sobre o projeto<textarea name="message" rows="4" required placeholder="O que você quer criar?"></textarea></label><button class="button button-dark" type="submit">Enviar pelo WhatsApp <span aria-hidden="true">↗</span></button><p class="form-note">Ao enviar, uma mensagem será aberta no WhatsApp. Sem formulários perdidos no caminho.</p><p class="form-status" role="status" aria-live="polite"></p></form></div>
+        <div class="page-shell contact-grid"><div class="contact-intro reveal"><p class="eyebrow">O próximo projeto começa aqui</p><h2 id="contact-title">Tem uma ideia<br />na cabeça?</h2><p>Me conte o que você quer colocar no mundo. Eu respondo pelo WhatsApp e a gente encontra o melhor caminho.</p><div class="contact-links"><a href="mailto:contato@luigiguerrazzi.com.br">contato@luigiguerrazzi.com.br <span>↗</span></a><a href="https://instagram.com/luigiguerrazzi_edicoes" target="_blank" rel="noreferrer">@luigiguerrazzi_edicoes <span>↗</span></a></div></div><form class="contact-form reveal" data-contact-form><label>Seu nome<input name="name" autocomplete="name" required placeholder="Como posso te chamar?" /></label><label>Seu e-mail<input type="email" name="email" autocomplete="email" required placeholder="voce@empresa.com" /></label><label>Sobre o projeto<textarea name="message" rows="4" required placeholder="O que você quer criar?"></textarea></label><button class="button button-dark" type="submit">Enviar pelo WhatsApp <span aria-hidden="true">↗</span></button><p class="form-note">Ao enviar, uma mensagem será aberta no WhatsApp. Sem formulários perdidos no caminho.</p><p class="form-status" role="status" aria-live="polite"></p></form></div>
       </section>
     </main>
 
