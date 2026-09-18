@@ -41,6 +41,27 @@
   const year = document.querySelector('[data-year]');
   if (year) year.textContent = new Date().getFullYear();
 
+  const heroVideo = document.querySelector('[data-hero-video]');
+  const keepHeroPlaying = () => {
+    if (!heroVideo) return;
+    heroVideo.loop = true;
+    heroVideo.muted = true;
+    const playPromise = heroVideo.play();
+    playPromise?.catch(() => {});
+  };
+  if (heroVideo) {
+    heroVideo.setAttribute('loop', '');
+    heroVideo.addEventListener('loadeddata', keepHeroPlaying, { once: true });
+    heroVideo.addEventListener('canplay', keepHeroPlaying);
+    heroVideo.addEventListener('pause', () => {
+      if (document.visibilityState === 'visible') keepHeroPlaying();
+    });
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible') keepHeroPlaying();
+    });
+    keepHeroPlaying();
+  }
+
   const signalSection = document.querySelector('[data-signal-section]');
   const signalVisual = signalSection?.querySelector('[data-signal-visual]');
   const signalSteps = signalSection ? [...signalSection.querySelectorAll('[data-signal-step]')] : [];
