@@ -9,9 +9,7 @@ Landing page estática inspirada em uma direção editorial de portfólio e adap
 - `script.js` — relógio, menu móvel, animações de entrada, rail de cases, timeline, modal de vídeos, FAQ e formulário para WhatsApp;
 - `assets/luigi/` — logos do cliente;
 - `midia/luigi/fotos/` — foto de perfil, thumbnails e portfólio visual;
-- `midia/luigi/videos/` — vídeos do staging sincronizados da Hostinger; os arquivos MP4 são versionados via Git LFS;
+- `midia/luigi/videos/` — showreel, aftermovie e cobertura de palestra;
 - `midia/clientes/` — marcas e parceiros usados na prova social.
 
 Os vídeos e imagens existentes são carregados a partir das pastas de mídia do staging. O formulário valida os dados localmente e abre uma mensagem preenchida no WhatsApp; não há armazenamento de dados no servidor.
-
-Esta branch acompanha a versão publicada em `white-pheasant-481528.hostingersite.com`. A versão anterior do GitHub foi preservada na tag `pre-hostinger-sync-20260916`.

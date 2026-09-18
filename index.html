@@ -16,10 +16,20 @@
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="assets/luigi/luigiLogoG.png" type="image/png" />
     <link rel="preload" href="fonts/Sora.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="stylesheet" href="styles.css?v=20260916-15" />
+    <link rel="preload" href="midia/luigi/fotos/hero-youtube.jpg" as="image" fetchpriority="high" />
+    <link rel="stylesheet" href="styles.css?v=20260918-8" />
     <title>Luigi Guerrazzi — Edição, design e direção criativa</title>
   </head>
   <body>
+    <div class="site-loader" data-site-loader role="status" aria-live="polite">
+      <div class="loader-grid" aria-hidden="true"></div>
+      <div class="loader-frame">
+        <div class="loader-brand"><span class="loader-mark">LG</span><span>LUIGI GUERRAZZI<small>SISTEMA CRIATIVO</small></span></div>
+        <div class="loader-signal"><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="loader-progress"><span data-loader-progress></span></div>
+        <p data-loader-status>preparando o próximo frame</p>
+      </div>
+    </div>
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
     <header class="site-header" data-header>
@@ -33,10 +43,6 @@
         <a href="#processo">Processo</a>
       </nav>
       <a class="button button-small button-outline header-cta" href="#contato">Contato</a>
-      <div class="header-clock" aria-label="Horário local em São Paulo">
-        <span class="header-clock__label">SP / BR</span>
-        <time class="clock" data-clock>00:00:00</time>
-      </div>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Abrir menu">
         <span></span><span></span>
       </button>
@@ -50,34 +56,71 @@
     </nav>
 
     <main id="conteudo">
-      <section class="hero" id="inicio" aria-label="Showreel de Luigi Guerrazzi">
-        <video class="hero-media" autoplay muted loop playsinline preload="metadata" poster="midia/luigi/fotos/hero-youtube.jpg" aria-hidden="true">
-          <source src="midia/luigi/videos/showreel-2026.mp4" type="video/mp4" />
+      <section class="hero" id="inicio" aria-labelledby="hero-title">
+        <video class="hero-media" data-hero-video autoplay muted playsinline preload="metadata" poster="midia/luigi/fotos/hero-youtube.jpg" aria-hidden="true">
+          <source src="midia/luigi/videos/web/showreel-2026.web.mp4" type="video/mp4" />
         </video>
         <div class="hero-fallback" role="img" aria-label="Imagem de bastidores de uma produção audiovisual"></div>
         <div class="hero-scrim"></div>
+        <div class="hero-content page-shell">
+          <div class="eyebrow light"><span class="status-dot"></span> Edição · Design · Publicidade</div>
+          <h1 id="hero-title" class="hero-title-staircase" data-hero-title>
+            <span class="hero-title-line"><span class="hero-title-word">Ideias</span> <span class="hero-title-word">que</span></span>
+            <span class="hero-title-line"><em><span class="hero-title-word">ganham</span> <span class="hero-title-word">ritmo.</span></em></span>
+          </h1>
+          <div class="hero-bottom">
+            <p class="hero-copy">Eu transformo intenção em imagem, som e movimento — do primeiro frame ao último detalhe.</p>
+            <a class="button button-light" href="#cases">Explorar trabalho <span aria-hidden="true">↓</span></a>
+          </div>
+          <div class="hero-meta"><span class="hero-meta-location">São Paulo, Brasil</span><span class="hero-meta-status">Disponível para projetos</span><span class="clock" data-clock aria-label="Horário local">00:00:00</span></div>
+        </div>
       </section>
 
-      <section class="signal section-dark" id="sinal" aria-labelledby="signal-title">
-        <div class="page-shell hero-intro" aria-labelledby="hero-title">
-          <div class="eyebrow light"><span class="status-dot"></span> Edição · Design · Publicidade</div>
-          <h1 id="hero-title">Ideias que<br /><em>ganham ritmo.</em></h1>
-          <div class="hero-intro__bottom">
-            <p>Eu transformo intenção em imagem, som e movimento — do primeiro frame ao último detalhe.</p>
+      <section class="signal section-dark" id="sinal" data-signal-section aria-labelledby="signal-title">
+        <div class="signal-sticky">
+          <div class="page-shell signal-grid">
+            <div class="signal-copy">
+              <p class="eyebrow">O que move o trabalho</p>
+              <h2 id="signal-title">Toda ideia tem um pulso.<br /><span>Meu trabalho é encontrá-lo.</span></h2>
+            </div>
+            <div class="signal-experience">
+              <div class="signal-visual" data-signal-visual aria-hidden="true">
+                <div class="signal-visual-top"><span>SIGNAL / CREATIVE SYSTEM</span><strong data-signal-live>01 — ESCUTAR</strong></div>
+                <svg class="signal-wave" viewBox="0 0 640 250" preserveAspectRatio="none" focusable="false">
+                  <defs>
+                    <linearGradient id="signal-wave-gradient" x1="0" y1="0" x2="1" y2="0">
+                      <stop offset="0" stop-color="#35d5b5" stop-opacity=".15" />
+                      <stop offset=".48" stop-color="#35d5b5" />
+                      <stop offset="1" stop-color="#b8f0df" stop-opacity=".28" />
+                    </linearGradient>
+                    <pattern id="signal-wave-grid" width="32" height="32" patternUnits="userSpaceOnUse">
+                      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#f1f1ec" stroke-opacity=".08" stroke-width="1" />
+                    </pattern>
+                  </defs>
+                  <rect width="640" height="250" fill="url(#signal-wave-grid)" />
+                  <path class="signal-wave-line signal-wave-line-a" d="M0 136 C55 136 57 98 111 98 S167 172 220 172 S272 115 326 115 S378 151 430 151 S489 85 542 85 S590 130 640 130" pathLength="1" />
+                  <path class="signal-wave-line signal-wave-line-b" d="M0 136 C48 136 64 70 116 70 S169 186 225 186 S276 103 329 103 S382 169 435 169 S491 62 548 62 S596 137 640 137" pathLength="1" />
+                  <path class="signal-wave-line signal-wave-line-c" d="M0 136 C54 136 64 121 116 121 S170 143 223 143 S278 127 329 127 S382 151 437 151 S494 112 548 112 S597 139 640 139" pathLength="1" />
+                  <circle class="signal-wave-dot" data-signal-dot cx="108" cy="98" r="5" />
+                </svg>
+                <div class="signal-visual-bottom"><span>INPUT / INTENTION</span><span class="signal-meter" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span>OUTPUT / IMPACT</span></div>
+              </div>
+              <div class="signal-notes">
+                <p data-signal-note>Uma boa entrega não começa no software. Começa na escuta: entender a intenção, reconhecer o público e construir a forma certa de dizer.</p>
+                <div class="signal-steps" role="group" aria-label="Etapas do processo criativo">
+                  <button class="signal-step is-active" type="button" data-signal-step="0" aria-pressed="true"><span>01</span><strong>Escutar</strong><small>contexto antes da forma</small></button>
+                  <button class="signal-step" type="button" data-signal-step="1" aria-pressed="false"><span>02</span><strong>Encontrar</strong><small>ritmo, intenção e linguagem</small></button>
+                  <button class="signal-step" type="button" data-signal-step="2" aria-pressed="false"><span>03</span><strong>Construir</strong><small>imagem, som e movimento</small></button>
+                </div>
+                <a class="text-link" href="#contato">Começar um projeto <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="page-shell signal-grid">
-          <div class="signal-copy">
-            <p class="eyebrow">O que move o trabalho</p>
-            <h2 id="signal-title">Toda ideia tem um pulso.<br /><span>Meu trabalho é encontrá-lo.</span></h2>
+          <div class="page-shell signal-rail" aria-label="Progressão do processo criativo">
+            <div class="signal-rail-meta"><span>IDEIA / SISTEMA CRIATIVO</span><strong data-signal-progress-label>01 — 03</strong></div>
+            <div class="signal-rail-track"><i data-signal-progress></i></div>
+            <div class="signal-rail-words"><span>ESCUTA</span><b>✳</b><span>INTENÇÃO</span><b>✳</b><span>RITMO</span><b>✳</b><span>IMPACTO</span></div>
           </div>
-          <div class="signal-notes">
-            <p>Uma boa entrega não começa no software. Começa na escuta: entender a intenção, reconhecer o público e construir a forma certa de dizer.</p>
-            <a class="text-link" href="#contato">Começar um projeto <span aria-hidden="true">↗</span></a>
-          </div>
-        </div>
-        <div class="marquee" aria-label="Edição, design, direção criativa">
-          <div class="marquee-track"><span>EDIÇÃO</span><b>✳</b><span>DESIGN</span><b>✳</b><span>DIREÇÃO CRIATIVA</span><b>✳</b><span>EDIÇÃO</span><b>✳</b><span>DESIGN</span><b>✳</b><span>DIREÇÃO CRIATIVA</span><b>✳</b></div>
         </div>
       </section>
 
@@ -85,7 +128,7 @@
         <div class="page-shell about-grid">
           <div class="about-visual reveal">
             <div class="image-frame about-slideshow" data-slideshow role="group" aria-label="Galeria de imagens sobre Luigi Guerrazzi">
-              <img class="slideshow-slide is-active" src="midia/luigi/fotos/perfil.jpg" alt="Luigi Guerrazzi trabalhando em uma edição" decoding="async" />
+              <img class="slideshow-slide is-active" src="midia/luigi/fotos/perfil.jpg" alt="Luigi Guerrazzi trabalhando em uma edição" loading="lazy" decoding="async" />
               <img class="slideshow-slide" src="midia/luigi/fotos/IMG_7134-cf.jpg" alt="" loading="lazy" decoding="async" />
               <img class="slideshow-slide" src="midia/luigi/fotos/IMG_7156-cf.jpg" alt="" loading="lazy" decoding="async" />
               <img class="slideshow-slide" src="midia/luigi/fotos/_CZT8612.JPG" alt="" loading="lazy" decoding="async" />
@@ -106,13 +149,17 @@
         </div>
       </section>
 
-      <section class="services section-dark" id="servicos" aria-labelledby="services-title">
-        <div class="page-shell">
-          <div class="section-heading reveal"><div><p class="eyebrow">Onde posso entrar</p></div><h2 id="services-title">Uma ideia.<br /><em>Várias formas de ganhar vida.</em></h2></div>
-          <div class="service-grid">
-            <article class="service-card reveal"><span class="card-number">01</span><div class="service-icon">◒</div><h3>Edição de vídeo</h3><p>Do material bruto à narrativa final: ritmo, seleção, montagem, sound design, cor e acabamento para cada formato.</p><div class="tag-row"><span>Reels</span><span>YouTube</span><span>Institucional</span><span>Eventos</span></div></article>
-            <article class="service-card reveal"><span class="card-number">02</span><div class="service-icon">⌘</div><h3>Design gráfico</h3><p>Identidade visual, peças digitais e sistemas gráficos que organizam a mensagem e dão consistência à presença da marca.</p><div class="tag-row"><span>Identidade</span><span>Social</span><span>Apresentações</span><span>Motion</span></div></article>
-            <article class="service-card reveal"><span class="card-number">03</span><div class="service-icon">↗</div><h3>Direção criativa</h3><p>Um olhar estratégico para transformar briefing em conceito, linguagem visual e uma entrega que faça sentido para o negócio.</p><div class="tag-row"><span>Conceito</span><span>Roteiro</span><span>Visual</span><span>Consultoria</span></div></article>
+      <section class="services section-dark" id="servicos" aria-labelledby="services-title" data-services-section>
+        <div class="page-shell services-shell" data-services-sticky>
+          <div class="services-copy">
+            <div class="section-heading reveal"><div><p class="eyebrow">Onde posso entrar</p></div><h2 id="services-title">Uma ideia.<br /><em>Várias formas de ganhar vida.</em></h2></div>
+          </div>
+          <div class="services-stage" data-services-stage>
+            <div class="service-grid reveal" data-service-grid>
+              <article class="service-card" data-service-card data-service-index="0" aria-hidden="false"><span class="card-number">01</span><div class="service-icon">◒</div><h3>Edição de vídeo</h3><p>Do material bruto à narrativa final: ritmo, seleção, montagem, sound design, cor e acabamento para cada formato.</p><div class="tag-row"><span>Reels</span><span>YouTube</span><span>Institucional</span><span>Eventos</span></div></article>
+              <article class="service-card" data-service-card data-service-index="1" aria-hidden="true"><span class="card-number">02</span><div class="service-icon">⌘</div><h3>Design gráfico</h3><p>Identidade visual, peças digitais e sistemas gráficos que organizam a mensagem e dão consistência à presença da marca.</p><div class="tag-row"><span>Identidade</span><span>Social</span><span>Apresentações</span><span>Motion</span></div></article>
+              <article class="service-card" data-service-card data-service-index="2" aria-hidden="true"><span class="card-number">03</span><div class="service-icon">↗</div><h3>Direção criativa</h3><p>Um olhar estratégico para transformar briefing em conceito, linguagem visual e uma entrega que faça sentido para o negócio.</p><div class="tag-row"><span>Conceito</span><span>Roteiro</span><span>Visual</span><span>Consultoria</span></div></article>
+            </div>
           </div>
         </div>
       </section>
@@ -120,16 +167,16 @@
       <section class="reel section-paper" aria-labelledby="reel-title">
         <div class="page-shell">
           <div class="section-heading compact reveal"><div><p class="eyebrow">Recorte em movimento</p></div><h2 id="reel-title">O frame também<br /><em>tem personalidade.</em></h2></div>
-          <button class="media-feature reveal" type="button" data-video="midia/luigi/videos/showreel-2026.mp4" data-cover-src="midia/luigi/videos/showreel-2026.mp4" data-title="Showreel 2026" aria-label="Assistir ao Showreel 2026">
+          <button class="media-feature reveal" type="button" data-video="midia/luigi/videos/web/showreel-2026.web.mp4" data-poster="midia/luigi/thumbs/showreel-2026.webp" data-cover-src="midia/luigi/videos/web/showreel-2026.web.mp4" data-title="Showreel 2026" aria-label="Assistir ao Showreel 2026">
             <video class="media-cover" muted playsinline preload="none" aria-hidden="true"></video><span class="media-overlay"></span><span class="play-button" aria-hidden="true">▶</span><span class="media-caption"><strong>Showreel 2026</strong><small>Vídeo · Edição · Motion</small></span>
           </button>
           <div class="reel-grid">
-            <button class="media-card reveal" type="button" data-video="midia/luigi/videos/aftermovie-evento-web.mp4" data-cover-src="midia/luigi/videos/aftermovie-evento-web.mp4" data-title="Aftermovie Evento Corporativo" aria-label="Assistir ao Aftermovie Evento Corporativo"><video class="media-cover" muted playsinline preload="none" aria-hidden="true"></video><span class="play-button small" aria-hidden="true">▶</span><span class="card-caption"><strong>Aftermovie Evento Corporativo</strong><small>Evento · Pós-produção</small></span></button>
-            <button class="media-card reveal" type="button" data-video="midia/luigi/videos/cobertura-palestra.mp4" data-cover-src="midia/luigi/videos/cobertura-palestra.mp4" data-title="Cobertura de Palestra — Backstage" aria-label="Assistir à Cobertura de Palestra"><video class="media-cover" muted playsinline preload="none" aria-hidden="true"></video><span class="play-button small" aria-hidden="true">▶</span><span class="card-caption"><strong>Cobertura de Palestra</strong><small>Backstage · Conteúdo</small></span></button>
-            <button class="media-card reveal" type="button" data-video="midia/luigi/videos/teaser 1 oficial com GC V2.mp4" data-cover-src="midia/luigi/videos/teaser 1 oficial com GC V2.mp4" data-title="Teaser oficial com GC" aria-label="Assistir ao teaser oficial com GC"><video class="media-cover" muted playsinline preload="none" aria-hidden="true"></video><span class="play-button small" aria-hidden="true">▶</span><span class="card-caption"><strong>Teaser oficial com GC</strong><small>Teaser · Edição</small></span></button>
-            <button class="media-card reveal" type="button" data-video="midia/luigi/videos/reels.mp4" data-cover-src="midia/luigi/videos/reels.mp4" data-title="Reels — seleção" aria-label="Assistir à seleção de Reels"><video class="media-cover" muted playsinline preload="none" aria-hidden="true"></video><span class="play-button small" aria-hidden="true">▶</span><span class="card-caption"><strong>Reels — seleção</strong><small>Social · Ritmo</small></span></button>
-            <button class="media-card reveal" type="button" data-video="midia/luigi/videos/SnapInsta.to_AQP9is0VZ6D0nlkmJONGwE29UUQ5fxLoyXtZTTt4IZsKYdHAg-rZUo8fBZj0bFrHMRlN_B0dHOedPA364IwAKjWOXC-Ni6HTLv4f_jw.mp4" data-cover-src="midia/luigi/videos/SnapInsta.to_AQP9is0VZ6D0nlkmJONGwE29UUQ5fxLoyXtZTTt4IZsKYdHAg-rZUo8fBZj0bFrHMRlN_B0dHOedPA364IwAKjWOXC-Ni6HTLv4f_jw.mp4" data-title="Reel — recorte 01" aria-label="Assistir ao Reel recorte 01"><video class="media-cover" muted playsinline preload="none" aria-hidden="true"></video><span class="play-button small" aria-hidden="true">▶</span><span class="card-caption"><strong>Reel — recorte 01</strong><small>Instagram · Conteúdo</small></span></button>
-            <button class="media-card reveal" type="button" data-video="midia/luigi/videos/SnapInsta.to_AQPw8MnoGN7Tig04kjN72TJcAYVnYPciaz8zNQSue8JBrpeV2NNmsH-PrscdxdGK6DOoZXyLYbvorLvLe4fwLaEr.mp4" data-cover-src="midia/luigi/videos/SnapInsta.to_AQPw8MnoGN7Tig04kjN72TJcAYVnYPciaz8zNQSue8JBrpeV2NNmsH-PrscdxdGK6DOoZXyLYbvorLvLe4fwLaEr.mp4" data-title="Reel — recorte 02" aria-label="Assistir ao Reel recorte 02"><video class="media-cover" muted playsinline preload="none" aria-hidden="true"></video><span class="play-button small" aria-hidden="true">▶</span><span class="card-caption"><strong>Reel — recorte 02</strong><small>Instagram · Conteúdo</small></span></button>
+            <button class="media-card reveal" type="button" data-video="midia/luigi/videos/web/aftermovie-evento-web.web.mp4" data-poster="midia/luigi/thumbs/aftermovie-evento-web.webp" data-cover-src="midia/luigi/videos/web/aftermovie-evento-web.web.mp4" data-title="Aftermovie Evento Corporativo" aria-label="Assistir ao Aftermovie Evento Corporativo"><video class="media-cover" muted playsinline preload="none" aria-hidden="true"></video><span class="play-button small" aria-hidden="true">▶</span><span class="card-caption"><strong>Aftermovie Evento Corporativo</strong><small>Evento · Pós-produção</small></span></button>
+            <button class="media-card reveal" type="button" data-video="midia/luigi/videos/web/cobertura-palestra.web.mp4" data-poster="midia/luigi/thumbs/cobertura-palestra.webp" data-cover-src="midia/luigi/videos/web/cobertura-palestra.web.mp4" data-title="Cobertura de Palestra — Backstage" aria-label="Assistir à Cobertura de Palestra"><video class="media-cover" muted playsinline preload="none" aria-hidden="true"></video><span class="play-button small" aria-hidden="true">▶</span><span class="card-caption"><strong>Cobertura de Palestra</strong><small>Backstage · Conteúdo</small></span></button>
+            <button class="media-card reveal" type="button" data-video="midia/luigi/videos/web/teaser-oficial-gc.web.mp4" data-poster="midia/luigi/thumbs/teaser-oficial-gc.webp" data-cover-src="midia/luigi/videos/web/teaser-oficial-gc.web.mp4" data-title="Teaser oficial com GC" aria-label="Assistir ao teaser oficial com GC"><video class="media-cover" muted playsinline preload="none" aria-hidden="true"></video><span class="play-button small" aria-hidden="true">▶</span><span class="card-caption"><strong>Teaser oficial com GC</strong><small>Teaser · Edição</small></span></button>
+            <button class="media-card reveal" type="button" data-video="midia/luigi/videos/web/reels.web.mp4" data-poster="midia/luigi/thumbs/reels.webp" data-cover-src="midia/luigi/videos/web/reels.web.mp4" data-title="Reels — seleção" aria-label="Assistir à seleção de Reels"><video class="media-cover" muted playsinline preload="none" aria-hidden="true"></video><span class="play-button small" aria-hidden="true">▶</span><span class="card-caption"><strong>Reels — seleção</strong><small>Social · Ritmo</small></span></button>
+            <button class="media-card reveal" type="button" data-video="midia/luigi/videos/web/reel-01.web.mp4" data-poster="midia/luigi/thumbs/reel-01.webp" data-cover-src="midia/luigi/videos/web/reel-01.web.mp4" data-title="Reel — recorte 01" aria-label="Assistir ao Reel recorte 01"><video class="media-cover" muted playsinline preload="none" aria-hidden="true"></video><span class="play-button small" aria-hidden="true">▶</span><span class="card-caption"><strong>Reel — recorte 01</strong><small>Instagram · Conteúdo</small></span></button>
+            <button class="media-card reveal" type="button" data-video="midia/luigi/videos/web/reel-02.web.mp4" data-poster="midia/luigi/thumbs/reel-02.webp" data-cover-src="midia/luigi/videos/web/reel-02.web.mp4" data-title="Reel — recorte 02" aria-label="Assistir ao Reel recorte 02"><video class="media-cover" muted playsinline preload="none" aria-hidden="true"></video><span class="play-button small" aria-hidden="true">▶</span><span class="card-caption"><strong>Reel — recorte 02</strong><small>Instagram · Conteúdo</small></span></button>
           </div>
         </div>
       </section>
@@ -141,24 +188,26 @@
           </div>
           <div class="work-viewport" data-work-viewport>
             <div class="case-rail work-track" data-case-rail tabindex="0" aria-label="Trabalhos em vídeo. Use a rolagem ou as setas para explorar.">
-              <button class="case-card" type="button" data-video="midia/luigi/videos/showreel-2026.mp4" data-cover-src="midia/luigi/videos/showreel-2026.mp4" data-title="Showreel 2026" aria-label="Assistir ao Showreel 2026"><span class="case-image"><video class="media-cover" muted playsinline preload="none" aria-hidden="true"></video><span class="case-number">01</span><span class="play-button small" aria-hidden="true">▶</span></span><span class="case-info"><strong>Showreel 2026</strong><small>Seleção · Edição · Motion</small></span></button>
-              <button class="case-card" type="button" data-video="midia/luigi/videos/aftermovie-evento-web.mp4" data-cover-src="midia/luigi/videos/aftermovie-evento-web.mp4" data-title="Aftermovie Evento Corporativo" aria-label="Assistir ao Aftermovie Evento Corporativo"><span class="case-image"><video class="media-cover" muted playsinline preload="none" aria-hidden="true"></video><span class="case-number">02</span><span class="play-button small" aria-hidden="true">▶</span></span><span class="case-info"><strong>Aftermovie</strong><small>Evento · Pós-produção</small></span></button>
-              <button class="case-card" type="button" data-video="midia/luigi/videos/cobertura-palestra.mp4" data-cover-src="midia/luigi/videos/cobertura-palestra.mp4" data-title="Cobertura de Palestra — Backstage" aria-label="Assistir à Cobertura de Palestra"><span class="case-image"><video class="media-cover" muted playsinline preload="none" aria-hidden="true"></video><span class="case-number">03</span><span class="play-button small" aria-hidden="true">▶</span></span><span class="case-info"><strong>Cobertura</strong><small>Backstage · Conteúdo</small></span></button>
-              <button class="case-card" type="button" data-video="midia/luigi/videos/teaser 1 oficial com GC V2.mp4" data-cover-src="midia/luigi/videos/teaser 1 oficial com GC V2.mp4" data-title="Teaser oficial com GC" aria-label="Assistir ao Teaser oficial com GC"><span class="case-image"><video class="media-cover" muted playsinline preload="none" aria-hidden="true"></video><span class="case-number">04</span><span class="play-button small" aria-hidden="true">▶</span></span><span class="case-info"><strong>Teaser com GC</strong><small>Teaser · Edição</small></span></button>
-              <button class="case-card" type="button" data-video="midia/luigi/videos/reels.mp4" data-cover-src="midia/luigi/videos/reels.mp4" data-title="Reels — seleção" aria-label="Assistir à seleção de Reels"><span class="case-image"><video class="media-cover" muted playsinline preload="none" aria-hidden="true"></video><span class="case-number">05</span><span class="play-button small" aria-hidden="true">▶</span></span><span class="case-info"><strong>Reels</strong><small>Social · Ritmo</small></span></button>
-              <button class="case-card" type="button" data-video="midia/luigi/videos/SnapInsta.to_AQP9is0VZ6D0nlkmJONGwE29UUQ5fxLoyXtZTTt4IZsKYdHAg-rZUo8fBZj0bFrHMRlN_B0dHOedPA364IwAKjWOXC-Ni6HTLv4f_jw.mp4" data-cover-src="midia/luigi/videos/SnapInsta.to_AQP9is0VZ6D0nlkmJONGwE29UUQ5fxLoyXtZTTt4IZsKYdHAg-rZUo8fBZj0bFrHMRlN_B0dHOedPA364IwAKjWOXC-Ni6HTLv4f_jw.mp4" data-title="Reel — recorte 01" aria-label="Assistir ao Reel recorte 01"><span class="case-image"><video class="media-cover" muted playsinline preload="none" aria-hidden="true"></video><span class="case-number">06</span><span class="play-button small" aria-hidden="true">▶</span></span><span class="case-info"><strong>Recorte 01</strong><small>Instagram · Conteúdo</small></span></button>
-              <button class="case-card" type="button" data-video="midia/luigi/videos/SnapInsta.to_AQPw8MnoGN7Tig04kjN72TJcAYVnYPciaz8zNQSue8JBrpeV2NNmsH-PrscdxdGK6DOoZXyLYbvorLvLe4fwLaEr.mp4" data-cover-src="midia/luigi/videos/SnapInsta.to_AQPw8MnoGN7Tig04kjN72TJcAYVnYPciaz8zNQSue8JBrpeV2NNmsH-PrscdxdGK6DOoZXyLYbvorLvLe4fwLaEr.mp4" data-title="Reel — recorte 02" aria-label="Assistir ao Reel recorte 02"><span class="case-image"><video class="media-cover" muted playsinline preload="none" aria-hidden="true"></video><span class="case-number">07</span><span class="play-button small" aria-hidden="true">▶</span></span><span class="case-info"><strong>Recorte 02</strong><small>Instagram · Conteúdo</small></span></button>
+              <button class="case-card" type="button" data-video="midia/luigi/videos/web/showreel-2026.web.mp4" data-poster="midia/luigi/thumbs/showreel-2026.webp" data-cover-src="midia/luigi/videos/web/showreel-2026.web.mp4" data-title="Showreel 2026" aria-label="Assistir ao Showreel 2026"><span class="case-image"><video class="media-cover" muted playsinline preload="none" aria-hidden="true"></video><span class="case-number">01</span><span class="play-button small" aria-hidden="true">▶</span></span><span class="case-info"><strong>Showreel 2026</strong><small>Seleção · Edição · Motion</small></span></button>
+              <button class="case-card" type="button" data-video="midia/luigi/videos/web/aftermovie-evento-web.web.mp4" data-poster="midia/luigi/thumbs/aftermovie-evento-web.webp" data-cover-src="midia/luigi/videos/web/aftermovie-evento-web.web.mp4" data-title="Aftermovie Evento Corporativo" aria-label="Assistir ao Aftermovie Evento Corporativo"><span class="case-image"><video class="media-cover" muted playsinline preload="none" aria-hidden="true"></video><span class="case-number">02</span><span class="play-button small" aria-hidden="true">▶</span></span><span class="case-info"><strong>Aftermovie</strong><small>Evento · Pós-produção</small></span></button>
+              <button class="case-card" type="button" data-video="midia/luigi/videos/web/cobertura-palestra.web.mp4" data-poster="midia/luigi/thumbs/cobertura-palestra.webp" data-cover-src="midia/luigi/videos/web/cobertura-palestra.web.mp4" data-title="Cobertura de Palestra — Backstage" aria-label="Assistir à Cobertura de Palestra"><span class="case-image"><video class="media-cover" muted playsinline preload="none" aria-hidden="true"></video><span class="case-number">03</span><span class="play-button small" aria-hidden="true">▶</span></span><span class="case-info"><strong>Cobertura</strong><small>Backstage · Conteúdo</small></span></button>
+              <button class="case-card" type="button" data-video="midia/luigi/videos/web/teaser-oficial-gc.web.mp4" data-poster="midia/luigi/thumbs/teaser-oficial-gc.webp" data-cover-src="midia/luigi/videos/web/teaser-oficial-gc.web.mp4" data-title="Teaser oficial com GC" aria-label="Assistir ao Teaser oficial com GC"><span class="case-image"><video class="media-cover" muted playsinline preload="none" aria-hidden="true"></video><span class="case-number">04</span><span class="play-button small" aria-hidden="true">▶</span></span><span class="case-info"><strong>Teaser com GC</strong><small>Teaser · Edição</small></span></button>
+              <button class="case-card" type="button" data-video="midia/luigi/videos/web/reels.web.mp4" data-poster="midia/luigi/thumbs/reels.webp" data-cover-src="midia/luigi/videos/web/reels.web.mp4" data-title="Reels — seleção" aria-label="Assistir à seleção de Reels"><span class="case-image"><video class="media-cover" muted playsinline preload="none" aria-hidden="true"></video><span class="case-number">05</span><span class="play-button small" aria-hidden="true">▶</span></span><span class="case-info"><strong>Reels</strong><small>Social · Ritmo</small></span></button>
+              <button class="case-card" type="button" data-video="midia/luigi/videos/web/reel-01.web.mp4" data-poster="midia/luigi/thumbs/reel-01.webp" data-cover-src="midia/luigi/videos/web/reel-01.web.mp4" data-title="Reel — recorte 01" aria-label="Assistir ao Reel recorte 01"><span class="case-image"><video class="media-cover" muted playsinline preload="none" aria-hidden="true"></video><span class="case-number">06</span><span class="play-button small" aria-hidden="true">▶</span></span><span class="case-info"><strong>Recorte 01</strong><small>Instagram · Conteúdo</small></span></button>
+              <button class="case-card" type="button" data-video="midia/luigi/videos/web/reel-02.web.mp4" data-poster="midia/luigi/thumbs/reel-02.webp" data-cover-src="midia/luigi/videos/web/reel-02.web.mp4" data-title="Reel — recorte 02" aria-label="Assistir ao Reel recorte 02"><span class="case-image"><video class="media-cover" muted playsinline preload="none" aria-hidden="true"></video><span class="case-number">07</span><span class="play-button small" aria-hidden="true">▶</span></span><span class="case-info"><strong>Recorte 02</strong><small>Instagram · Conteúdo</small></span></button>
             </div>
           </div>
           <div class="page-shell case-rail-note"><p>Role para atravessar a seleção.</p><a class="text-link" href="#contato">Quero construir o próximo <span aria-hidden="true">↗</span></a></div>
         </div>
       </section>
 
-      <section class="proof section-paper" aria-labelledby="proof-title">
-        <div class="page-shell proof-grid">
-          <div class="proof-copy reveal"><p class="eyebrow">Parcerias que viraram entrega</p><h2 id="proof-title">Boas ideias<br /><em>não trabalham sozinhas.</em></h2><p>Uma seleção de marcas, negócios e projetos que já passaram pela timeline — cada um com um desafio diferente, todos com espaço para fazer bem feito.</p></div>
-          <div class="logo-wall reveal" aria-label="Marcas e parceiros"><div class="logo-tile"><img src="midia/clientes/avantto.webp" alt="Avantto" loading="lazy" /></div><div class="logo-tile"><img src="midia/clientes/arqdigital.webp" alt="Arq Digital" loading="lazy" /></div><div class="logo-tile"><img src="midia/clientes/baldan.webp" alt="Baldan" loading="lazy" /></div><div class="logo-tile"><img src="midia/clientes/belas-artes.webp" alt="Belas Artes" loading="lazy" /></div><div class="logo-tile"><img src="midia/clientes/bravend.webp" alt="Bravend" loading="lazy" /></div><div class="logo-tile"><img src="midia/clientes/delfar.webp" alt="Delfar" loading="lazy" /></div><div class="logo-tile"><img src="midia/clientes/dharma.webp" alt="Dharma" loading="lazy" /></div><div class="logo-tile"><img src="midia/clientes/dobro.webp" alt="Dobro" loading="lazy" /></div><div class="logo-tile"><img src="midia/clientes/enviagora.webp" alt="EnviaAgora" loading="lazy" /></div><div class="logo-tile"><img src="midia/clientes/g4.webp" alt="G4" loading="lazy" /></div><div class="logo-tile"><img src="midia/clientes/hikvision.webp" alt="Hikvision" loading="lazy" /></div><div class="logo-tile"><img src="midia/clientes/nova8.webp" alt="Nova 8" loading="lazy" /></div></div>
-          <div class="testimonial-strip reveal" aria-label="Depoimentos visuais"><figure><img src="midia/depoimentos/avantto.webp" alt="Depoimento visual da Avantto" loading="lazy" /><figcaption>Avantto · depoimento</figcaption></figure><figure><img src="midia/depoimentos/dobro.webp" alt="Depoimento visual da Dobro" loading="lazy" /><figcaption>Dobro · depoimento</figcaption></figure><figure><img src="midia/depoimentos/nova8.webp" alt="Depoimento visual da Nova 8" loading="lazy" /><figcaption>Nova 8 · depoimento</figcaption></figure></div>
+      <section class="proof section-dark" aria-labelledby="proof-title">
+        <div class="page-shell testimonial-grid">
+          <div class="proof-copy reveal"><p class="eyebrow">Uma voz depois da entrega</p><h2 id="proof-title">O que fica<br /><em>depois do corte.</em></h2><p>A melhor prova de um processo bem conduzido é a experiência de quem esteve do outro lado. Aqui, a história continua em primeira pessoa.</p><div class="testimonial-mark"><small>DEPOIMENTO REAL<br />EM VÍDEO</small></div></div>
+          <div class="testimonial-feature reveal">
+            <button class="media-feature testimonial-card" type="button" data-video="midia/luigi/videos/web/depoimento.web.mp4" data-poster="midia/luigi/thumbs/depoimento.webp" data-cover-src="midia/luigi/videos/web/depoimento.web.mp4" data-title="Depoimento em vídeo" aria-label="Assistir ao depoimento em vídeo"><video class="media-cover" muted playsinline preload="none" aria-hidden="true"></video><span class="media-overlay"></span><span class="play-button" aria-hidden="true">▶</span><span class="media-caption"><strong>Depoimento</strong><small>Uma experiência real de processo e entrega</small></span></button>
+            <div class="testimonial-foot" aria-hidden="true"><span>APERTE PLAY PARA OUVIR A HISTÓRIA</span><i class="signal-line"></i><span class="signal-bars"><b></b><b></b><b></b><b></b><b></b></span></div>
+          </div>
         </div>
       </section>
 
@@ -174,8 +223,40 @@
         </div>
       </section>
 
-      <section class="toolkit section-dark" aria-labelledby="toolkit-title">
-        <div class="page-shell toolkit-grid"><div><p class="eyebrow">Ferramentas a serviço da ideia</p></div><h2 id="toolkit-title">Domínio técnico<br /><em>sem perder o olhar.</em></h2><div class="tool-list"><span>Adobe Premiere Pro</span><span>After Effects</span><span>Photoshop</span><span>Direção de arte</span><span>Sound design</span><span>Color grading</span></div></div>
+      <section class="toolkit section-dark" id="toolkit" aria-labelledby="toolkit-title">
+        <div class="page-shell toolkit-shell">
+          <div class="toolkit-topline reveal">
+            <div><p class="eyebrow">Ferramentas a serviço da ideia</p></div>
+            <p class="toolkit-status"><span class="status-dot"></span> SISTEMA CRIATIVO / ONLINE</p>
+          </div>
+          <div class="toolkit-display">
+            <div class="toolkit-intro reveal">
+              <p class="toolkit-kicker">Alta performance para cada frame</p>
+              <h2 id="toolkit-title">Domínio técnico<br /><em>sem perder o olhar.</em></h2>
+              <p>As ferramentas são o motor. A direção é o que faz cada escolha chegar no lugar certo.</p>
+            </div>
+            <div class="toolkit-console reveal" data-toolkit-console aria-label="Ecossistema de ferramentas de pós-produção">
+              <div class="console-top"><span>LG / CREATIVE ENGINE</span><span>POST-PRODUCTION UNIT <i></i></span></div>
+              <canvas class="toolkit-canvas" data-toolkit-canvas aria-hidden="true"></canvas>
+              <div class="toolkit-3d-labels" aria-hidden="true"><span class="toolkit-3d-label toolkit-label-premiere"><b>PR</b><small>PREMIERE PRO</small></span><span class="toolkit-3d-label toolkit-label-after"><b>AE</b><small>AFTER EFFECTS</small></span><span class="toolkit-3d-label toolkit-label-photoshop"><b>Ps</b><small>PHOTOSHOP</small></span></div>
+              <div class="toolkit-orbit" aria-hidden="true">
+                <span class="orbit orbit-outer"></span><span class="orbit orbit-inner"></span>
+                <span class="orbit-cross orbit-cross-a"></span><span class="orbit-cross orbit-cross-b"></span>
+                <span class="tool-core"><i class="tool-core-lens"></i><b>LG</b><small>CREATIVE<br />ENGINE</small></span>
+                <span class="tool-token tool-token-premiere"><b>PR</b><small>PREMIERE<br />PRO</small></span>
+                <span class="tool-token tool-token-after"><b>AE</b><small>AFTER<br />EFFECTS</small></span>
+                <span class="tool-token tool-token-photoshop"><b>Ps</b><small>PHOTOSHOP</small></span>
+              </div>
+              <div class="console-bottom"><span>PRECISION / RHYTHM / IMPACT</span><span class="console-bars"><i></i><i></i><i></i><i></i><i></i></span></div>
+            </div>
+          </div>
+          <div class="toolkit-flow reveal" aria-label="Especialidades do fluxo de trabalho">
+            <div class="tool-flow-row"><span>01</span><strong>EDIT</strong><small>Adobe Premiere Pro</small><i></i><em>RITMO</em></div>
+            <div class="tool-flow-row"><span>02</span><strong>MOVE</strong><small>After Effects</small><i></i><em>MOTION</em></div>
+            <div class="tool-flow-row"><span>03</span><strong>BUILD</strong><small>Photoshop + direção de arte</small><i></i><em>LINGUAGEM</em></div>
+            <div class="tool-flow-row"><span>04</span><strong>FINISH</strong><small>Sound design + color grading</small><i></i><em>ACABAMENTO</em></div>
+          </div>
+        </div>
       </section>
 
       <section class="faq section-paper" aria-labelledby="faq-title">
@@ -192,11 +273,23 @@
       </section>
     </main>
 
-    <footer class="site-footer"><div class="page-shell footer-grid"><a class="brand footer-brand" href="#inicio"><img src="assets/luigi/logo-rodape.png" alt="Luigi Guerrazzi" /></a><p>Editor de vídeo · Publicitário<br />Designer gráfico</p><div class="footer-social"><a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="https://www.behance.net/" target="_blank" rel="noreferrer">Behance ↗</a><a href="https://instagram.com/luigiguerrazzi_edicoes" target="_blank" rel="noreferrer">Instagram ↗</a></div><small>© <span data-year>2026</span> Luigi Guerrazzi. Feito com intenção.</small></div></footer>
+    <footer class="site-footer">
+      <div class="page-shell footer-shell">
+        <div class="footer-signal reveal">
+          <div><p class="eyebrow">O próximo projeto começa aqui</p><h2>Vamos colocar<br /><em>ritmo na ideia.</em></h2></div>
+          <a class="button button-light" href="#contato">Iniciar conversa <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="footer-main">
+          <div class="footer-identity"><a class="brand footer-brand" href="#inicio"><img src="assets/luigi/logo-rodape.png" alt="Luigi Guerrazzi" /></a><p>Editor de vídeo · Publicitário<br />Designer gráfico</p><a class="footer-email" href="mailto:contato@luigiguerrazzi.com.br">contato@luigiguerrazzi.com.br</a></div>
+          <nav class="footer-column" aria-label="Navegação do rodapé"><p class="footer-label">Explorar</p><a href="#sobre">Sobre</a><a href="#servicos">Serviços</a><a href="#cases">Cases</a><a href="#processo">Processo</a></nav>
+          <div class="footer-column"><p class="footer-label">Serviços</p><span>Edição de vídeo</span><span>Design gráfico</span><span>Direção criativa</span><span>Sound design &amp; cor</span></div>
+          <div class="footer-column footer-presence"><p class="footer-label">Presença</p><p>São Paulo, Brasil<br />Atendimento remoto e presencial</p><a href="https://instagram.com/luigiguerrazzi_edicoes" target="_blank" rel="noreferrer">Instagram <span aria-hidden="true">↗</span></a></div>
+        </div>
+        <div class="footer-bottom"><span>© <span data-year>2026</span> Luigi Guerrazzi</span><span>Feito com intenção.</span><a href="#inicio">Voltar ao topo <span aria-hidden="true">↑</span></a></div>
+      </div>
+    </footer>
 
-    <dialog class="media-modal" data-modal aria-labelledby="modal-title">
-      <div class="modal-inner"><button class="modal-close" type="button" data-modal-close aria-label="Fechar vídeo">×</button><p class="eyebrow" id="modal-kicker">Em movimento</p><h2 id="modal-title">Projeto</h2><div class="modal-stage" data-modal-stage></div></div>
-    </dialog>
-    <script src="script.js?v=20260916-7" defer></script>
+    <script src="script.js?v=20260918-3" defer></script>
+    <script type="module" src="toolkit-3d.js?v=20260918-8"></script>
   </body>
 </html>

@@ -2,6 +2,29 @@
   const root = document.documentElement;
   root.classList.remove('no-js');
   root.classList.add('js');
+  root.classList.add('is-loading');
+
+  const siteLoader = document.querySelector('[data-site-loader]');
+  const loaderProgress = siteLoader?.querySelector('[data-loader-progress]');
+  const loaderStatus = siteLoader?.querySelector('[data-loader-status]');
+  const loaderStartedAt = performance.now();
+  let loaderReleased = false;
+  const releaseLoader = () => {
+    if (loaderReleased) return;
+    loaderReleased = true;
+    const wait = Math.max(0, 520 - (performance.now() - loaderStartedAt));
+    window.setTimeout(() => {
+      loaderProgress?.classList.add('is-complete');
+      if (loaderStatus) loaderStatus.textContent = 'sistema pronto';
+      root.classList.remove('is-loading');
+      root.classList.add('is-ready');
+      siteLoader?.setAttribute('aria-hidden', 'true');
+      window.setTimeout(() => siteLoader?.remove(), 720);
+    }, wait);
+  };
+  if (document.readyState === 'complete') releaseLoader();
+  else window.addEventListener('load', releaseLoader, { once: true });
+  window.setTimeout(releaseLoader, 1800);
 
   const header = document.querySelector('[data-header]');
   const updateHeader = () => header?.classList.toggle('is-solid', window.scrollY > 35);
@@ -17,6 +40,91 @@
   window.setInterval(updateClock, 1000);
   const year = document.querySelector('[data-year]');
   if (year) year.textContent = new Date().getFullYear();
+
+  const signalSection = document.querySelector('[data-signal-section]');
+  const signalVisual = signalSection?.querySelector('[data-signal-visual]');
+  const signalSteps = signalSection ? [...signalSection.querySelectorAll('[data-signal-step]')] : [];
+  const signalNote = signalSection?.querySelector('[data-signal-note]');
+  const signalLive = signalSection?.querySelector('[data-signal-live]');
+  const signalProgress = signalSection?.querySelector('[data-signal-progress]');
+  const signalProgressLabel = signalSection?.querySelector('[data-signal-progress-label]');
+  const signalDot = signalSection?.querySelector('[data-signal-dot]');
+  const signalWaveLines = signalSection ? [...signalSection.querySelectorAll('.signal-wave-line')] : [];
+  const signalMobile = window.matchMedia('(max-width: 850px)');
+  const signalReduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const signalStages = [
+    {
+      label: 'ESCUTAR',
+      note: 'Uma boa entrega não começa no software. Começa na escuta: entender a intenção, reconhecer o público e construir a forma certa de dizer.',
+      dot: [108, 98],
+    },
+    {
+      label: 'ENCONTRAR',
+      note: 'É aqui que a ideia encontra seu ritmo: referências, escolhas e cortes que dão forma ao que precisa ser sentido.',
+      dot: [326, 115],
+    },
+    {
+      label: 'CONSTRUIR',
+      note: 'Imagem, som e movimento entram em cena para transformar intenção em uma peça clara, viva e pronta para circular.',
+      dot: [548, 62],
+    },
+  ];
+  let signalFrame = 0;
+  let signalStage = 0;
+  const setSignalStage = (nextStage) => {
+    if (!signalStages.length) return;
+    const next = Math.min(Math.max(Number(nextStage) || 0, 0), signalStages.length - 1);
+    signalStage = next;
+    const stage = signalStages[next];
+    signalSteps.forEach((step, index) => {
+      const isActive = index === next;
+      step.classList.toggle('is-active', isActive);
+      step.setAttribute('aria-pressed', String(isActive));
+    });
+    signalNote && (signalNote.textContent = stage.note);
+    signalLive && (signalLive.textContent = `0${next + 1} — ${stage.label}`);
+    signalProgressLabel && (signalProgressLabel.textContent = `0${next + 1} — 03`);
+    signalProgress && (signalProgress.style.width = `${(next / Math.max(1, signalStages.length - 1)) * 100}%`);
+    signalWaveLines.forEach((line, index) => line.classList.toggle('is-active', index === next));
+    signalDot?.setAttribute('cx', String(stage.dot[0]));
+    signalDot?.setAttribute('cy', String(stage.dot[1]));
+    signalVisual?.setAttribute('data-signal-stage', String(next));
+  };
+  const paintSignal = () => {
+    signalFrame = 0;
+    if (!signalSection || !signalSteps.length || signalMobile.matches || signalReduceMotion.matches) return;
+    const travel = Math.max(1, signalSection.offsetHeight - window.innerHeight);
+    const progress = Math.min(Math.max(-signalSection.getBoundingClientRect().top / travel, 0), 1);
+    setSignalStage(Math.round(progress * (signalStages.length - 1)));
+  };
+  const scheduleSignal = () => {
+    if (!signalFrame) signalFrame = window.requestAnimationFrame(paintSignal);
+  };
+  if (signalSection && signalSteps.length) {
+    setSignalStage(0);
+    signalSteps.forEach((step) => step.addEventListener('click', () => {
+      const targetStage = Number(step.dataset.signalStep);
+      setSignalStage(targetStage);
+      if (signalMobile.matches || signalReduceMotion.matches) return;
+      const travel = Math.max(1, signalSection.offsetHeight - window.innerHeight);
+      const targetTop = signalSection.offsetTop + (travel * targetStage) / Math.max(1, signalStages.length - 1);
+      window.scrollTo({ top: targetTop, behavior: 'smooth' });
+    }));
+    signalVisual?.addEventListener('pointermove', (event) => {
+      const bounds = signalVisual.getBoundingClientRect();
+      const x = ((event.clientX - bounds.left) / bounds.width) * 100;
+      const y = ((event.clientY - bounds.top) / bounds.height) * 100;
+      signalVisual.style.setProperty('--signal-pointer-x', `${Math.min(Math.max(x, 0), 100)}%`);
+      signalVisual.style.setProperty('--signal-pointer-y', `${Math.min(Math.max(y, 0), 100)}%`);
+    });
+    signalVisual?.addEventListener('pointerleave', () => {
+      signalVisual.style.removeProperty('--signal-pointer-x');
+      signalVisual.style.removeProperty('--signal-pointer-y');
+    });
+    window.addEventListener('scroll', scheduleSignal, { passive: true });
+    window.addEventListener('resize', scheduleSignal);
+    scheduleSignal();
+  }
 
   const navToggle = document.querySelector('.nav-toggle');
   const mobileNav = document.querySelector('.mobile-nav');
@@ -49,6 +157,82 @@
   } else {
     revealElements.forEach((element) => element.classList.add('is-visible'));
   }
+
+  const servicesSection = document.querySelector('[data-services-section]');
+  const servicesSticky = servicesSection?.querySelector('[data-services-sticky]');
+  const servicesCards = servicesSection ? [...servicesSection.querySelectorAll('[data-service-card]')] : [];
+  const servicesCurrent = servicesSection?.querySelector('[data-services-current]');
+  const servicesProgress = servicesSection?.querySelector('[data-services-progress]');
+  const servicesReduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const servicesMobile = window.matchMedia('(max-width: 850px)');
+  let servicesTravel = 0;
+  let servicesFrame = 0;
+  const clampServices = (value, min, max) => Math.min(Math.max(value, min), max);
+  const getServicesProgress = () => {
+    if (!servicesSection || !servicesTravel) return 0;
+    return clampServices(-servicesSection.getBoundingClientRect().top / servicesTravel, 0, 1);
+  };
+  const paintServices = () => {
+    servicesFrame = 0;
+    if (!servicesSection || !servicesCards.length) return;
+
+    if (servicesMobile.matches || servicesReduceMotion.matches) {
+      servicesCards.forEach((card) => {
+        card.style.removeProperty('opacity');
+        card.style.removeProperty('visibility');
+        card.style.removeProperty('transform');
+        card.style.removeProperty('z-index');
+        card.style.removeProperty('pointer-events');
+        card.dataset.serviceState = 'static';
+        card.setAttribute('aria-hidden', 'false');
+      });
+      servicesCurrent && (servicesCurrent.textContent = '01');
+      servicesProgress && (servicesProgress.style.width = '0%');
+      return;
+    }
+
+    const progress = getServicesProgress();
+    const position = progress * Math.max(0, servicesCards.length - 1);
+    const activeIndex = Math.round(position);
+    servicesCards.forEach((card, index) => {
+      const distance = index - position;
+      const absoluteDistance = Math.abs(distance);
+      const visible = absoluteDistance < 1.25;
+      const fade = visible ? 1 - Math.min(absoluteDistance, 1) * 0.76 : 0;
+      const scale = 1 - Math.min(absoluteDistance, 1) * 0.055;
+      card.style.opacity = String(Math.max(0, fade));
+      card.style.visibility = visible ? 'visible' : 'hidden';
+      card.style.transform = `translate3d(${distance * 4}%, ${distance * 48}px, 0) scale(${scale})`;
+      card.style.zIndex = String(100 - Math.round(absoluteDistance * 10));
+      card.style.pointerEvents = index === activeIndex ? 'auto' : 'none';
+      card.dataset.serviceState = index === activeIndex ? 'active' : index < activeIndex ? 'past' : 'next';
+      card.setAttribute('aria-hidden', String(index !== activeIndex));
+    });
+    servicesSection.style.setProperty('--services-progress', `${progress * 100}%`);
+    servicesCurrent && (servicesCurrent.textContent = String(activeIndex + 1).padStart(2, '0'));
+    servicesProgress && (servicesProgress.style.width = `${progress * 100}%`);
+  };
+  const scheduleServices = () => {
+    if (!servicesFrame) servicesFrame = window.requestAnimationFrame(paintServices);
+  };
+  const measureServices = () => {
+    if (!servicesSection || !servicesSticky || !servicesCards.length) return;
+    if (servicesMobile.matches || servicesReduceMotion.matches) {
+      servicesTravel = 0;
+      servicesSection.style.removeProperty('height');
+      paintServices();
+      return;
+    }
+    servicesSection.style.height = `${window.innerHeight * servicesCards.length}px`;
+    servicesTravel = Math.max(1, servicesSection.offsetHeight - window.innerHeight);
+    paintServices();
+  };
+  measureServices();
+  window.addEventListener('load', measureServices, { once: true });
+  window.addEventListener('resize', measureServices);
+  window.addEventListener('scroll', scheduleServices, { passive: true });
+  servicesMobile.addEventListener?.('change', measureServices);
+  servicesReduceMotion.addEventListener?.('change', measureServices);
 
   const workSection = document.querySelector('[data-work-section]');
   const workViewport = workSection?.querySelector('[data-work-viewport]');
@@ -133,7 +317,11 @@
   });
   reduceMotion.addEventListener?.('change', startSlideshow);
 
-  const coverVideos = document.querySelectorAll('[data-cover-src] .media-cover');
+  document.querySelectorAll('[data-poster] .media-cover').forEach((video) => {
+    const poster = video.closest('[data-poster]')?.dataset.poster;
+    if (poster) video.poster = poster;
+  });
+  const coverVideos = document.querySelectorAll('[data-cover-src] .media-cover:not([poster])');
   const primeCover = (video) => {
     if (video.dataset.coverLoaded) return;
     video.dataset.coverLoaded = 'true';
@@ -158,7 +346,7 @@
   } else {
     coverVideos.forEach(primeCover);
   }
-  const priorityCovers = rail ? [...rail.querySelectorAll('.media-cover')].slice(0, 4) : [];
+  const priorityCovers = rail ? [...rail.querySelectorAll('.media-cover:not([poster])')].slice(0, 2) : [];
   if ('IntersectionObserver' in window && workSection && priorityCovers.length) {
     const priorityObserver = new IntersectionObserver((entries, observer) => {
       if (!entries.some((entry) => entry.isIntersecting)) return;
@@ -180,43 +368,37 @@
   }, { threshold: .7 });
   timelineItems.forEach((item) => timelineObserver.observe(item));
 
-  const modal = document.querySelector('[data-modal]');
-  const stage = modal?.querySelector('[data-modal-stage]');
-  const modalTitle = modal?.querySelector('#modal-title');
-  let lastTrigger = null;
-  const closeModal = () => {
-    if (!modal?.open) return;
-    const media = stage?.querySelector('video');
-    if (media) media.pause();
-    modal.close();
-    if (stage) stage.replaceChildren();
-    lastTrigger?.focus();
-  };
-  document.querySelectorAll('[data-video]').forEach((trigger) => trigger.addEventListener('click', () => {
-    if (!modal || !stage) return;
-    lastTrigger = trigger;
-    if (modalTitle) modalTitle.textContent = trigger.dataset.title || 'Projeto em movimento';
-    const video = document.createElement('video');
-    video.src = trigger.dataset.video;
-    video.preload = 'metadata';
+  const inlineVideoTriggers = document.querySelectorAll('[data-video]');
+  const activateInlineVideo = (trigger, video) => {
+    if (!trigger.dataset.video || trigger.classList.contains('is-playing')) return;
+    trigger.classList.add('is-playing');
+    trigger.setAttribute('aria-label', `Reproduzindo ${trigger.dataset.title || 'vídeo do projeto'}`);
     video.controls = true;
     video.autoplay = true;
-    video.playsInline = true;
+    video.muted = false;
+    video.loop = false;
+    video.preload = 'auto';
+    video.removeAttribute('aria-hidden');
     video.setAttribute('aria-label', trigger.dataset.title || 'Vídeo do projeto');
-    stage.replaceChildren(video);
-    modal.showModal();
-  }));
-  modal?.querySelector('[data-modal-close]')?.addEventListener('click', closeModal);
-  modal?.addEventListener('click', (event) => { if (event.target === modal) closeModal(); });
-  modal?.addEventListener('cancel', (event) => { event.preventDefault(); closeModal(); });
-  modal?.addEventListener('keydown', (event) => {
-    if (event.key !== 'Tab') return;
-    const focusables = modal.querySelectorAll('button, video, [href], input, textarea, select');
-    if (!focusables.length) return;
-    const first = focusables[0];
-    const last = focusables[focusables.length - 1];
-    if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
-    else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+    video.src = trigger.dataset.video;
+
+    const startPlayback = () => {
+      const playback = video.play();
+      if (playback?.catch) playback.catch(() => video.focus());
+    };
+    video.addEventListener('loadeddata', startPlayback, { once: true });
+    video.load();
+    if (video.readyState >= 2) startPlayback();
+  };
+  inlineVideoTriggers.forEach((trigger) => {
+    const video = trigger.querySelector('video.media-cover');
+    if (!video) return;
+    trigger.addEventListener('click', (event) => {
+      if (trigger.classList.contains('is-playing')) return;
+      event.preventDefault();
+      activateInlineVideo(trigger, video);
+    });
+    video.addEventListener('click', (event) => event.stopPropagation());
   });
 
   const form = document.querySelector('[data-contact-form]');
